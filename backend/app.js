@@ -21,7 +21,7 @@ app.use('/ventas', ventasRouter);
 
 // Ruta de prueba
 app.get('/', (req, res) => {
-  res.json({ mensaje: 'API GameZone — Tienda de Videojuegos funcionando correctamente' });
+  res.json({ mensaje: 'API GameZone - Tienda de Videojuegos funcionando correctamente' });
 });
 
 // Manejo de errores
@@ -30,6 +30,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Error interno del servidor' });
 });
 
-app.listen(PORT, '0.0.0.0'? () => {
-  console.log(`Servidor backend GameZone corriendo en http://localhost:${PORT}`);
+// Escuchar en 0.0.0.0 para Railway
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor backend GameZone corriendo en el puerto ${PORT}`);
 });
